@@ -3,7 +3,7 @@ import numpy as np
 
 
 #for image read
-img=cv2.imread('02.jpg',cv2.IMREAD_COLOR)
+img=cv2.imread('images/02.jpg',cv2.IMREAD_COLOR)
 
 #details of Imge
 print("Shape: ",img.shape)
