@@ -90,11 +90,22 @@ except:
 
 #blur= cv2.GaussianBlur(img,(5,5),0)
 
-cv2.imshow("With Line", img)
+import matplotlib.pyplot as plt
+import numpy as np
 
-#edges1 = cv2.Canny(img,10,200)
-#cv2.imshow("cannyEdited",edges1)
+fig, (ax1, ax2)= plt.subplots(2,1)
 
+x= np.arange(1,gray.shape[0]-1)
+y= dist_list
+
+#print(len(x),len(y))
+
+
+ax1.plot(x,y)
+img= np.rot90(img)
+ax2.imshow(img)
+
+plt.show()
 
 
 
