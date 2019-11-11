@@ -35,7 +35,7 @@ gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 median = cv2.medianBlur(gray,5)
 bool,threshold_img=cv2.threshold(median,130,255,cv2.THRESH_BINARY)
 #blur=cv2.GaussianBlur(threshold_img,(7,7),0)
-cv2.imshow("threshold",threshold_img)
+#cv2.imshow("threshold",threshold_img)
 
 initial=[]
 final=[]
@@ -59,7 +59,11 @@ for i in range(0,gray.shape[0]):
 err= 25
 danger_points=[]
 
+#store distances
+dist_list=[]
+
 for i in range(1,len(line)-1):
+	dist_list.append(line[i][1][1]-line[i][0][1])
 	try:
 		prev_= line[i-1]
 		next_= line[i+1]
@@ -77,7 +81,7 @@ for i in range(1,len(line)-1):
 	start,end= line[i]
 	#raise ZeroDivisionError
 	mid=int((start[0]+end[0])/2),int((start[1]+end[1])/2)
-	img[mid[0],mid[1]]=[0,0,255]
+	#img[mid[0],mid[1]]=[0,0,255]
 
 try:
 	start_rect=danger_points[0][0][::-1]
