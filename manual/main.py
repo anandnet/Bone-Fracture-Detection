@@ -69,7 +69,7 @@ median = cv2.medianBlur(gray,5)
 
 model= get_model(model_name)
 pred_thresh= model.predict([_reshape_img(img_t)])
-bool,threshold_img=cv2.threshold(median,pred_thresh,255,cv2.THRESH_BINARY)
+bool,threshold_img=cv2.threshold(median,int(pred_thresh),255,cv2.THRESH_BINARY)
 #blur=cv2.GaussianBlur(threshold_img,(7,7),0)
 cv2.imshow("threshold",threshold_img)
 
